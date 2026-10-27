@@ -296,6 +296,7 @@
   });
 
   
+
 document.getElementById("leadForm").addEventListener("submit", async function(event) {
   event.preventDefault();
 
@@ -316,7 +317,6 @@ document.getElementById("leadForm").addEventListener("submit", async function(ev
     (notes ? "تفاصيل إضافية: " + notes + "\n" : "") +
     "\nالمرجو إرسال التفاصيل المتعلقة بالبرنامج. شكرًا لكم.";
 
-  // فتح نافذة واتساب مسبقًا لتقليل احتمال حظرها
   const whatsappWindow = window.open("about:blank", "_blank");
 
   if (!whatsappWindow) {
@@ -325,7 +325,7 @@ document.getElementById("leadForm").addEventListener("submit", async function(ev
   }
 
   button.disabled = true;
-  status.textContent = "جارٍ إرسال طلبك وحفظ بياناتك...";
+  status.textContent = "جارٍ حفظ بياناتك...";
 
   try {
     const response = await fetch(form.action, {
@@ -334,43 +334,22 @@ document.getElementById("leadForm").addEventListener("submit", async function(ev
       headers: { Accept: "application/json" }
     });
 
-    const result = await response.json();
-
-    if (!response.ok || !result.ok) {
-      throw new Error("تعذر تأكيد حفظ الطلب.");
+    if (!response.ok) {
+      throw new Error("تعذر إرسال الاستمارة.");
     }
 
-    status.textContent = "تم إرسال طلبك بنجاح. جارٍ فتح واتساب...";
-
+    status.textContent = "تم إرسال البيانات. جارٍ فتح واتساب...";
     whatsappWindow.location.href = whatsappUrl(message);
-
     form.reset();
 
   } catch (error) {
     whatsappWindow.close();
     status.textContent =
-      "لم نتمكن من تأكيد حفظ بياناتك. تحقق من اتصال الإنترنت وحاول مجددًا، أو تواصل معنا عبر واتساب.";
+      "تعذر تأكيد إرسال البيانات. يرجى المحاولة مجددًا أو التواصل معنا عبر واتساب.";
   } finally {
     button.disabled = false;
   }
 });
 
-    event.preventDefault();
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const program = document.getElementById("program").value;
-    const notes = document.getElementById("notes").value.trim();
-
-    const message =
-      "السلام عليكم، أود الاستفسار عن أحد برامج مركز صناعة الذكاء للتدريب والاستشارات.\n\n" +
-      "الاسم الكامل: " + name + "\n" +
-      "رقم الهاتف: " + phone + "\n" +
-      "البرنامج المطلوب: " + program + "\n" +
-      (notes ? "تفاصيل إضافية: " + notes + "\n" : "") +
-      "\nالمرجو إرسال التفاصيل المتعلقة بالبرنامج. شكرًا لكم.";
-
-    window.open(whatsappUrl(message), "_blank", "noopener");
-  });
-</script>
 </body>
 </html>
