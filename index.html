@@ -208,7 +208,7 @@
         <p>املأ الاستمارة التالية، وسنجهّز لك رسالة واتساب تتضمن طلبك حتى تتمكن من إرسالها إلينا.</p>
       </div>
       <div class="form-card">
-        <form id="leadForm">
+        <form id="leadForm" action="https://formsubmit.app/f/pjeq7k9qzp" method="POST">
           <div class="form-grid">
             <div class="field">
               <label for="name">الاسم الكامل *</label>
@@ -235,6 +235,8 @@
             </div>
             <div class="field full">
               <button class="btn btn-primary" type="submit">إرسال طلب التفاصيل عبر واتساب</button>
+              <p id="formStatus" class="form-note" role="status" aria-live="polite"></p>
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
               <p class="form-note">ملاحظة: عند الضغط على الزر، سيفتح واتساب برسالة جاهزة. لن تُرسل البيانات تلقائيًا قبل أن تضغط على إرسال داخل واتساب.</p>
             </div>
           </div>
@@ -293,7 +295,66 @@
     });
   });
 
-  document.getElementById("leadForm").addEventListener("submit", function(event) {
+  
+document.getElementById("leadForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const form = this;
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.getElementById("formStatus");
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const program = document.getElementById("program").value;
+  const notes = document.getElementById("notes").value.trim();
+
+  const message =
+    "السلام عليكم، أود الاستفسار عن أحد برامج مركز صناعة الذكاء للتدريب والاستشارات.\n\n" +
+    "الاسم الكامل: " + name + "\n" +
+    "رقم الهاتف: " + phone + "\n" +
+    "البرنامج المطلوب: " + program + "\n" +
+    (notes ? "تفاصيل إضافية: " + notes + "\n" : "") +
+    "\nالمرجو إرسال التفاصيل المتعلقة بالبرنامج. شكرًا لكم.";
+
+  // فتح نافذة واتساب مسبقًا لتقليل احتمال حظرها
+  const whatsappWindow = window.open("about:blank", "_blank");
+
+  if (!whatsappWindow) {
+    status.textContent = "يرجى السماح بفتح النوافذ المنبثقة لهذا الموقع.";
+    return;
+  }
+
+  button.disabled = true;
+  status.textContent = "جارٍ إرسال طلبك وحفظ بياناتك...";
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
+      throw new Error("تعذر تأكيد حفظ الطلب.");
+    }
+
+    status.textContent = "تم إرسال طلبك بنجاح. جارٍ فتح واتساب...";
+
+    whatsappWindow.location.href = whatsappUrl(message);
+
+    form.reset();
+
+  } catch (error) {
+    whatsappWindow.close();
+    status.textContent =
+      "لم نتمكن من تأكيد حفظ بياناتك. تحقق من اتصال الإنترنت وحاول مجددًا، أو تواصل معنا عبر واتساب.";
+  } finally {
+    button.disabled = false;
+  }
+});
+
     event.preventDefault();
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.trim();
