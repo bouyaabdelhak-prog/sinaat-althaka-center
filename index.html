@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eaf7f4">
+  <meta name="description" content="مركز صناعة الذكاء للتدريب والاستشارات: برامج لتنمية الذاكرة والتركيز والحساب الذهني والتعلم الذكي للأطفال والكبار.">
+  <title>مركز صناعة الذكاء للتدريب والاستشارات</title>
+  <style>
+    :root{
+      --ink:#173b4a; --muted:#5b7079; --blue:#dff2fb; --mint:#dff5eb;
+      --green:#16785b; --green-dark:#105b47; --white:#fff; --line:#dcebe8;
+      --shadow:0 16px 44px rgba(22,70,77,.09); --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Tahoma,Arial,sans-serif;color:var(--ink);background:#fbfefd;line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(251,254,253,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand-mark{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#cceafa,#c9efdc);display:grid;place-items:center;font-size:24px}
+    .brand small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+    nav{display:flex;align-items:center;gap:20px;font-size:14px}
+    nav a:hover{color:var(--green)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 21px;font:inherit;font-weight:700;cursor:pointer;transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--green);color:white;box-shadow:0 8px 20px rgba(22,120,91,.18)}
+    .btn-light{background:white;color:var(--green-dark);border:1px solid var(--line)}
+    .hero{padding:72px 0 54px;overflow:hidden;background:radial-gradient(circle at 12% 15%,#e0f5ec 0,transparent 28%),radial-gradient(circle at 88% 10%,#e1f3fc 0,transparent 30%)}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:48px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;background:#e5f6ef;color:var(--green-dark);padding:7px 13px;border-radius:999px;font-size:13px;font-weight:700}
+    h1{font-size:clamp(32px,4.7vw,54px);line-height:1.35;letter-spacing:-1px;margin:18px 0}
+    h1 span{color:var(--green)}
+    .hero p{color:var(--muted);font-size:17px;max-width:650px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+    .hero-card{position:relative;background:rgba(255,255,255,.82);border:1px solid white;border-radius:32px;padding:28px;box-shadow:var(--shadow)}
+    .brain-art{height:230px;border-radius:24px;background:linear-gradient(135deg,#dff2fb,#e2f7eb);display:grid;place-items:center;font-size:92px;position:relative;overflow:hidden}
+    .brain-art:before,.brain-art:after{content:"";position:absolute;border:1px solid rgba(22,120,91,.18);border-radius:50%;width:190px;height:190px}
+    .brain-art:after{width:260px;height:260px}
+    .brain-art span{position:relative;z-index:1}
+    .mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}
+    .mini-stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 8px;text-align:center;font-size:12px;color:var(--muted)}
+    .mini-stat strong{display:block;color:var(--green-dark);font-size:14px}
+    section{padding:70px 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 34px}
+    .section-head h2{font-size:clamp(27px,3vw,38px);line-height:1.4;margin:0 0 12px}
+    .section-head p{color:var(--muted);margin:0}
+    .programs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .program{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 8px 26px rgba(22,70,77,.04);display:flex;flex-direction:column;align-items:flex-start}
+    .program-icon{width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--mint));display:grid;place-items:center;font-size:26px}
+    .program h3{font-size:21px;margin:16px 0 7px}
+    .program p{color:var(--muted);margin:0 0 17px}
+    .program a{margin-top:auto;color:var(--green);font-weight:800}
+    .benefits{background:linear-gradient(135deg,#eef9f5,#eff8fc)}
+    .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .benefit{background:rgba(255,255,255,.8);padding:22px;border-radius:20px;border:1px solid white}
+    .benefit strong{display:block;margin:8px 0}
+    .benefit p{margin:0;color:var(--muted);font-size:14px}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:center}
+    .about-visual{border-radius:28px;min-height:270px;background:linear-gradient(135deg,#dff2fb,#dff5eb);display:grid;place-items:center;font-size:80px}
+    .about-copy h2{font-size:32px;line-height:1.4;margin:0 0 14px}
+    .about-copy p{color:var(--muted)}
+    .form-section{background:#f3faf8}
+    .form-card{max-width:760px;margin:auto;background:white;border:1px solid var(--line);border-radius:28px;padding:clamp(20px,4vw,38px);box-shadow:var(--shadow)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    label{display:block;font-size:14px;font-weight:700;margin-bottom:7px}
+    input,select,textarea{width:100%;border:1px solid #cddfdb;border-radius:13px;padding:13px 14px;font:inherit;background:#fcfefd;color:var(--ink);outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(22,120,91,.1)}
+    .field{margin-bottom:16px}
+    .full{grid-column:1/-1}
+    .form-note{font-size:12px;color:var(--muted);margin:12px 0 0}
+    .faq{max-width:800px;margin:auto}
+    details{background:white;border:1px solid var(--line);border-radius:16px;padding:17px 20px;margin-bottom:12px}
+    summary{font-weight:800;cursor:pointer}
+    details p{color:var(--muted);margin-bottom:0}
+    .final-cta{padding:48px 0}
+    .cta-box{border-radius:28px;padding:35px;background:linear-gradient(120deg,#dff2fb,#dff5eb);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .cta-box h2{margin:0 0 7px;font-size:27px}
+    .cta-box p{margin:0;color:var(--muted)}
+    footer{background:#143e4a;color:#eaf6f5;padding:30px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+    footer p{margin:4px 0;color:#c5dcdb;font-size:13px}
+    .whatsapp-float{position:fixed;bottom:20px;left:20px;z-index:20;background:#1fa968;color:white;border-radius:999px;padding:13px 17px;font-weight:800;box-shadow:0 8px 25px #1235;display:flex;gap:8px;align-items:center}
+    @media(max-width:800px){
+      nav{display:none}.hero-grid,.about-grid{grid-template-columns:1fr}.hero{padding-top:45px}.hero-card{max-width:520px;margin:auto;width:100%}
+      .programs{grid-template-columns:1fr}.benefit-grid{grid-template-columns:1fr}.cta-box{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:520px){
+      .form-grid{grid-template-columns:1fr}.full{grid-column:auto}.mini-stats{grid-template-columns:1fr 1fr 1fr}
+      .brand{font-size:13px}.brand-mark{width:42px;height:42px}.btn{width:100%}.actions{width:100%}
+      .whatsapp-float{bottom:12px;left:12px;padding:11px 14px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="العودة إلى الصفحة الرئيسية">
+      <span class="brand-mark">🧠</span>
+      <span>مركز صناعة الذكاء<small>للتدريب والاستشارات</small></span>
+    </a>
+    <nav aria-label="القائمة الرئيسية">
+      <a href="#programs">برامجنا</a>
+      <a href="#about">عن المركز</a>
+      <a href="#faq">أسئلة شائعة</a>
+      <a href="#register">التسجيل</a>
+    </nav>
+    <a class="btn btn-primary" href="#register">اطلب التفاصيل</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">✨ تعلّم بذكاء، وتذكّر بثقة</span>
+        <h1>نساعدك على اكتشاف قدراتك وصناعة <span>مستقبل أكثر ذكاءً</span></h1>
+        <p>برامج تدريبية عملية لتنمية الذاكرة والتركيز والتعلّم الذكي والحساب الذهني، للأطفال والكبار، عن بُعد وبأساليب تفاعلية.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#register">سجّل اهتمامك الآن ←</a>
+          <a class="btn btn-light" href="#programs">اكتشف برامجنا</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="تنمية الذاكرة والتعلم">
+        <div class="brain-art"><span>🧠</span></div>
+        <div class="mini-stats">
+          <div class="mini-stat"><strong>الذاكرة</strong>حفظ واسترجاع</div>
+          <div class="mini-stat"><strong>التركيز</strong>انتباه أفضل</div>
+          <div class="mini-stat"><strong>التعلّم</strong>مهارات عملية</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>برامج تساعدك على تطوير قدراتك</h2>
+        <p>اختر البرنامج الذي يناسب هدفك، واترك لنا مهمة مساعدتك في معرفة التفاصيل وخطوات التسجيل.</p>
+      </div>
+      <div class="programs">
+        <article class="program">
+          <div class="program-icon">👨‍👩‍👧</div>
+          <h3>برنامج «ابني يتذكر»</h3>
+          <p>أنشطة وأساليب لتنمية ذاكرة الأطفال وتركيزهم، ودعم مهارات التعلّم والاستيعاب بطريقة ممتعة وتفاعلية.</p>
+          <a href="#register" data-program="برنامج ابني يتذكر">أريد معرفة التفاصيل ←</a>
+        </article>
+        <article class="program">
+          <div class="program-icon">⚡</div>
+          <h3>دورة «احفظ بذكاء» للكبار</h3>
+          <p>تعرّف على استراتيجيات الذاكرة والحفظ والتذكّر، وطبّقها في الدراسة والعمل والتدريب والحياة اليومية.</p>
+          <a href="#register" data-program="دورة احفظ بذكاء للكبار">أريد معرفة التفاصيل ←</a>
+        </article>
+        <article class="program">
+          <div class="program-icon">🧮</div>
+          <h3>إعداد مدربي الحساب الذهني السوروبان</h3>
+          <p>تكوين موجّه للمدربين والمربين الراغبين في تطوير مهاراتهم في تعليم الحساب الذهني السوروبان.</p>
+          <a href="#register" data-program="إعداد مدربي الحساب الذهني السوروبان">أريد معرفة التفاصيل ←</a>
+        </article>
+        <article class="program">
+          <div class="program-icon">📖</div>
+          <h3>حفظ القرآن الكريم بالذاكرة</h3>
+          <p>تعلّم طرقًا عملية لتنظيم الحفظ وتثبيت المعلومات وتسهيل استرجاع الآيات، مع التدريب والتطبيق.</p>
+          <a href="#register" data-program="حفظ القرآن الكريم بالذاكرة">أريد معرفة التفاصيل ←</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>لماذا تختار مركز صناعة الذكاء؟</h2>
+        <p>نركّز على تجربة تعلّم تجمع بين المتعة والجودة والخبرة والتطبيق العملي.</p>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit"><span>🎯</span><strong>تعلّم له هدف</strong><p>محتوى واضح يساعد المتدرّب على فهم المهارة وتجربتها وتطبيقها.</p></div>
+        <div class="benefit"><span>💡</span><strong>أساليب تفاعلية</strong><p>أنشطة وتمارين تجعل التعلّم أكثر مشاركة وارتباطًا بالحياة اليومية.</p></div>
+        <div class="benefit"><span>🤝</span><strong>مواكبة وتوجيه</strong><p>نساعدك على اختيار البرنامج الأنسب لاحتياجاتك وأهدافك.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-visual">🌱🧠</div>
+      <div class="about-copy">
+        <h2>كل قدرة يمكن أن تنمو بالتدريب المناسب</h2>
+        <p>مركز صناعة الذكاء للتدريب والاستشارات فضاء للتعلّم وتطوير القدرات، نقدّم من خلاله برامج للأطفال والكبار، ونساعد الأسر والمدربين على اكتشاف طرق عملية لتحسين الحفظ والتركيز والتعلّم.</p>
+        <p>نؤمن بأن التدريب الفعّال يبدأ بفهم احتياجات المتدرّب، ثم الممارسة المنتظمة والتوجيه المناسب.</p>
+        <a class="btn btn-light" href="#register">تواصل معنا لمعرفة البرنامج المناسب</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="register">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>ابدأ خطوتك الأولى</h2>
+        <p>املأ الاستمارة التالية، وسنجهّز لك رسالة واتساب تتضمن طلبك حتى تتمكن من إرسالها إلينا.</p>
+      </div>
+      <div class="form-card">
+        <form id="leadForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">الاسم الكامل *</label>
+              <input id="name" name="name" autocomplete="name" required placeholder="اكتب اسمك الكامل">
+            </div>
+            <div class="field">
+              <label for="phone">رقم الهاتف *</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="رقم يمكن التواصل معك عبره">
+            </div>
+            <div class="field full">
+              <label for="program">البرنامج الذي يهمك *</label>
+              <select id="program" name="program" required>
+                <option value="">اختر البرنامج</option>
+                <option>برنامج ابني يتذكر</option>
+                <option>دورة احفظ بذكاء للكبار</option>
+                <option>إعداد مدربي الحساب الذهني السوروبان</option>
+                <option>حفظ القرآن الكريم بالذاكرة</option>
+                <option>استشارة أو برنامج آخر</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="notes">ما الذي ترغب في معرفته؟ (اختياري)</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="مثلاً: موعد الانطلاق، الثمن، طريقة الدراسة..."></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit">إرسال طلب التفاصيل عبر واتساب</button>
+              <p class="form-note">ملاحظة: عند الضغط على الزر، سيفتح واتساب برسالة جاهزة. لن تُرسل البيانات تلقائيًا قبل أن تضغط على إرسال داخل واتساب.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>أسئلة شائعة</h2>
+        <p>إجابات أولية عن طريقة التعلّم والتسجيل.</p>
+      </div>
+      <div class="faq">
+        <details><summary>هل البرامج متاحة عن بُعد؟</summary><p>تُقدَّم بعض البرامج عن بُعد عبر منصات التواصل المرئي. تواصل معنا لمعرفة طريقة الدراسة الخاصة بالبرنامج الذي تختاره.</p></details>
+        <details><summary>كيف أعرف البرنامج الأنسب لي أو لطفلي؟</summary><p>أرسل طلبك عبر الاستمارة، وحدّد هدفك، وسنساعدك على معرفة البرنامج الأقرب إلى احتياجاتك.</p></details>
+        <details><summary>هل أستطيع معرفة الثمن ومواعيد الانطلاق قبل التسجيل؟</summary><p>نعم، يمكنك طلب تفاصيل البرنامج ومواعيده وثمنه قبل اتخاذ قرار التسجيل.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap cta-box">
+      <div><h2>هل أنت مستعد لتطوير مهاراتك؟</h2><p>أخبرنا بهدفك، وسنساعدك على اختيار الخطوة المناسبة.</p></div>
+      <a class="btn btn-primary" href="#register">اطلب تفاصيل البرنامج</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div><strong>مركز صناعة الذكاء للتدريب والاستشارات</strong><p>نحو تعلّم أذكى وقدرات أقوى.</p></div>
+    <p>© <span id="year"></span> جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<a class="whatsapp-float" id="floatingWhatsApp" href="#" target="_blank" rel="noopener">☏ تواصل عبر واتساب</a>
+
+<script>
+  // عدّل الرقم أدناه عند الحاجة: اكتب رمز الدولة ثم الرقم دون + أو مسافات.
+  const WHATSAPP_NUMBER = "212600541222";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function whatsappUrl(message) {
+    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  }
+
+  document.getElementById("floatingWhatsApp").href = whatsappUrl("السلام عليكم، أود معرفة المزيد عن برامج مركز صناعة الذكاء للتدريب والاستشارات.");
+
+  document.querySelectorAll("[data-program]").forEach(link => {
+    link.addEventListener("click", () => {
+      const select = document.getElementById("program");
+      select.value = link.dataset.program;
+    });
+  });
+
+  document.getElementById("leadForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const program = document.getElementById("program").value;
+    const notes = document.getElementById("notes").value.trim();
+
+    const message =
+      "السلام عليكم، أود الاستفسار عن أحد برامج مركز صناعة الذكاء للتدريب والاستشارات.\n\n" +
+      "الاسم الكامل: " + name + "\n" +
+      "رقم الهاتف: " + phone + "\n" +
+      "البرنامج المطلوب: " + program + "\n" +
+      (notes ? "تفاصيل إضافية: " + notes + "\n" : "") +
+      "\nالمرجو إرسال التفاصيل المتعلقة بالبرنامج. شكرًا لكم.";
+
+    window.open(whatsappUrl(message), "_blank", "noopener");
+  });
+</script>
+</body>
+</html>
