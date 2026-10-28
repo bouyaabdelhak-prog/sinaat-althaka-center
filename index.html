@@ -98,6 +98,76 @@
       .brand{font-size:13px}.brand-mark{width:42px;height:42px}.btn{width:100%}.actions{width:100%}
       .whatsapp-float{bottom:12px;left:12px;padding:11px 14px}
     }
+
+/* تحسين بصري فاخر للموقع */
+:root {
+  --primary: #075985;
+  --primary-dark: #064766;
+  --accent: #15966b;
+  --soft-blue: #eef8fc;
+  --soft-green: #eff9f3;
+}
+
+body {
+  background: #f8fbfd;
+  color: #123b56;
+  line-height: 1.8;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 4px 24px rgba(7, 68, 100, 0.08);
+  border-bottom: 1px solid #e3f0f5;
+}
+
+.brand-mark img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.btn {
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(7, 89, 133, 0.16);
+}
+
+.card,
+.program-card,
+.panel {
+  border-radius: 20px;
+  border: 1px solid #e0edf3;
+  box-shadow: 0 8px 28px rgba(7, 68, 100, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.program-card:hover,
+.panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(7, 68, 100, 0.10);
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+input,
+select,
+textarea {
+  border-radius: 12px;
+}
+
+.whatsapp-float {
+  box-shadow: 0 8px 24px rgba(21, 150, 107, 0.25);
+  font-weight: 700;
+}
+
   </style>
 </head>
 <body>
