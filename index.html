@@ -286,12 +286,22 @@
 
   document.getElementById("floatingWhatsApp").href = whatsappUrl("السلام عليكم، أود معرفة المزيد عن برامج مركز صناعة الذكاء للتدريب والاستشارات.");
 
-  document.querySelectorAll("[data-program]").forEach(link => {
-    link.addEventListener("click", () => {
-      const select = document.getElementById("program");
-      select.value = link.dataset.program;
-    });
+  
+document.querySelectorAll("[data-program]").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+
+    const program = link.dataset.program;
+
+    const message =
+      "السلام عليكم، أود معرفة تفاصيل " + program +
+      " من مركز صناعة الذكاء للتدريب والاستشارات.\n\n" +
+      "المرجو إرسال معلومات الثمن والمواعيد وطريقة التسجيل. شكرًا لكم.";
+
+    window.open(whatsappUrl(message), "_blank");
   });
+});
+
 
   
 
